@@ -30,27 +30,39 @@ export default function EventInquiryForm() {
     e.preventDefault()
     setLoading(true)
     
-    // TODO: Integrate with form service (Web3Forms, Formspree, etc.)
-    console.log('Form submitted:', formData)
-    
-    // Simulate API call
-    setTimeout(() => {
-      setSubmitted(true)
-      setLoading(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        eventType: '',
-        eventDate: '',
-        guestCount: '',
-        eventLocation: '',
-        budget: '',
-        dietaryRestrictions: '',
-        message: ''
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
-      setTimeout(() => setSubmitted(false), 5000)
-    }, 1000)
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          eventType: '',
+          eventDate: '',
+          guestCount: '',
+          eventLocation: '',
+          budget: '',
+          dietaryRestrictions: '',
+          message: ''
+        })
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        throw new Error('Failed to send email')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('There was an error submitting your inquiry. Please try calling us at (858) 434-7166.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
