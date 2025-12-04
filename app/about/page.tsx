@@ -16,7 +16,7 @@ export default function About() {
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">About Haru Teppanyaki</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">About Fire Up Hibachi</h1>
           <p className="text-xl text-zinc-300">14 years of cooking excellence serving all Southern California</p>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function About() {
               </h2>
 
               <p className="text-lg text-zinc-400 leading-relaxed">
-                Chef Hernan Loredo brings 14 years of professional teppanyaki cooking experience to every event. What started as a passion for Japanese cuisine has grown into Southern California's premier mobile hibachi catering service - Haru Teppanyaki Catering.
+                Chef Hernan Loredo brings 14 years of professional teppanyaki cooking experience to every event. What started as a passion for Japanese cuisine has grown into Southern California's premier mobile hibachi catering service - Fire Up Hibachi.
               </p>
 
               <p className="text-lg text-zinc-400 leading-relaxed">
@@ -183,13 +183,13 @@ export default function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:(858) 434-7166" 
+              href="tel:(951) 376-6014" 
               className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-lg inline-flex items-center justify-center gap-2 transition transform hover:-translate-y-1 shadow-lg"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              (858) 434-7166
+              (951) 376-6014
             </a>
             <Link
               href="/contact"

@@ -59,7 +59,7 @@ export default function EventInquiryForm() {
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      alert('There was an error submitting your inquiry. Please try calling us at (858) 434-7166.')
+      alert('There was an error submitting your inquiry. Please try calling us at (951) 376-6014.')
     } finally {
       setLoading(false)
     }

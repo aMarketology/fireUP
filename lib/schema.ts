@@ -3,12 +3,12 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'FoodEstablishment',
   '@id': 'https://fireuphibachi.com',
-  name: 'Haru Teppanyaki Catering',
+  name: 'Fire Up Hibachi',
   alternateName: 'Fire Up Hibachi',
   image: 'https://fireuphibachi.com/hero-bg-hibachi.jpg',
   description: '14 years of cooking experience. Premium hibachi and teppanyaki catering serving all Southern California. Best quality only.',
   url: 'https://fireuphibachi.com',
-  telephone: '+1 858-434-7166',
+  telephone: '+1 951-376-6014',
   founder: {
     '@type': 'Person',
     name: 'Hernan Loredo',
@@ -40,7 +40,7 @@ export const organizationSchema = {
 export const servicesSchema = {
   '@context': 'https://schema.org',
   '@type': 'FoodEstablishment',
-  name: 'Haru Teppanyaki Catering',
+  name: 'Fire Up Hibachi',
   hasOfferingCatalog: {
     '@type': 'OfferCatalog',
     name: 'Catering Services',
@@ -132,7 +132,7 @@ export const faqSchema = {
 export const reviewSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Haru Teppanyaki Catering',
+  name: 'Fire Up Hibachi',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',

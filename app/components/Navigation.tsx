@@ -74,12 +74,12 @@ export default function Navigation() {
               </motion.div>
             ))}
             <motion.a
-              href="tel:(858) 434-7166"
+              href="tel:(951) 376-6014"
               className="font-semibold px-6 py-2 rounded-lg text-white hover:text-red-500 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              (858) 434-7166
+              (951) 376-6014
             </motion.a>
           </div>
         </div>
@@ -166,10 +166,10 @@ export default function Navigation() {
                 ))}
                 <div className="px-4 pt-2">
                   <a
-                    href="tel:(858) 434-7166"
+                    href="tel:(951) 376-6014"
                     className="block w-full bg-red-600 hover:bg-red-700 text-white text-center font-semibold px-6 py-3 rounded-lg transition"
                   >
-                    (858) 434-7166
+                    (951) 376-6014
                   </a>
                 </div>
               </div>
