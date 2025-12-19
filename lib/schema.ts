@@ -6,7 +6,7 @@ export const organizationSchema = {
   name: 'Fire Up Hibachi',
   alternateName: 'Fire Up Hibachi',
   image: 'https://fireuphibachi.com/hero-bg-hibachi.jpg',
-  description: '14 years of cooking experience. Premium hibachi and teppanyaki catering serving all Southern California. Best quality only.',
+  description: '14 years of cooking experience. Premium hibachi and teppanyaki catering serving Riverside and the Inland Empire. Best quality only.',
   url: 'https://fireuphibachi.com',
   telephone: '+1 951-376-6014',
   founder: {
@@ -16,16 +16,19 @@ export const organizationSchema = {
   },
   address: {
     '@type': 'PostalAddress',
+    addressLocality: 'Riverside',
     addressRegion: 'CA',
     addressCountry: 'US',
   },
   areaServed: [
     { '@type': 'State', name: 'California' },
-    { '@type': 'City', name: 'Los Angeles' },
-    { '@type': 'City', name: 'San Diego' },
-    { '@type': 'City', name: 'Orange County' },
     { '@type': 'City', name: 'Riverside' },
+    { '@type': 'City', name: 'Corona' },
+    { '@type': 'City', name: 'Moreno Valley' },
+    { '@type': 'City', name: 'Temecula' },
     { '@type': 'City', name: 'San Bernardino' },
+    { '@type': 'City', name: 'Rancho Cucamonga' },
+    { '@type': 'City', name: 'Ontario' },
   ],
   servesCuisine: ['Japanese', 'Teppanyaki', 'Hibachi'],
   priceRange: '$$$',
@@ -107,7 +110,7 @@ export const faqSchema = {
       name: 'What areas do you serve?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We serve all of Southern California including Los Angeles, San Diego, Orange County, Riverside, and San Bernardino.',
+        text: 'We serve Riverside, Corona, Moreno Valley, Temecula, Rancho Cucamonga, Ontario, Fontana, San Bernardino, and the entire Inland Empire region.',
       },
     },
     {

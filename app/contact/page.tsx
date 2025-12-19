@@ -75,8 +75,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-zinc-400 mb-1">SERVICE AREA</h4>
-                      <p className="text-lg font-semibold text-zinc-100">Irvine, CA</p>
-                      <p className="text-sm text-zinc-500 mt-1">Serving all of Orange County</p>
+                      <p className="text-lg font-semibold text-zinc-100">Riverside, CA</p>
+                      <p className="text-sm text-zinc-500 mt-1">Serving all of the Inland Empire</p>
                     </div>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <p className="text-zinc-400 font-semibold">Service Area Map</p>
-                <p className="text-zinc-600 text-sm mt-2">Serving Irvine & Orange County</p>
+                <p className="text-zinc-600 text-sm mt-2">Serving Riverside & the Inland Empire</p>
               </div>
             </div>
           </div>

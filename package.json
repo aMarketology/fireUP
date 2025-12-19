@@ -1,9 +1,9 @@
 {
-  "name": "concrete-coatings-website",
+  "name": "fireup-hibachi-website",
   "version": "1.0.0",
-  "description": "Tampa Bay Concrete Coatings - Professional concrete coating services",
+  "description": "Fire Up Hibachi - Premium Hibachi Catering serving Southern California with 14 years of cooking experience",
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "next dev -H 0.0.0.0 -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

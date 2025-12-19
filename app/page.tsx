@@ -45,7 +45,7 @@ export default function Home() {
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                  <span className="text-xs font-medium text-zinc-400 uppercase tracking-widest">Irvine, California</span>
+                  <span className="text-xs font-medium text-zinc-400 uppercase tracking-widest">Riverside, California</span>
                 </div>
               </motion.div>
 
@@ -165,7 +165,7 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-zinc-400 leading-relaxed">
-                With over 20 years of experience, Fire Up Hibachi has been serving Irvine and Orange County with premium hibachi catering services. Our master chefs trained in traditional Japanese cooking techniques bring the excitement and flavors of authentic hibachi directly to your venue.
+                With over 20 years of experience, Fire Up Hibachi has been serving Riverside and the Inland Empire with premium hibachi catering services. Our master chefs trained in traditional Japanese cooking techniques bring the excitement and flavors of authentic hibachi directly to your venue.
               </p>
 
               <div className="space-y-4">
@@ -594,7 +594,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="text-zinc-100 font-semibold">Jennifer S.</p>
-                  <p className="text-zinc-500 text-sm">Corporate Event, Irvine</p>
+                  <p className="text-zinc-500 text-sm">Corporate Event, Riverside</p>
                 </div>
               </div>
             </div>
@@ -743,16 +743,16 @@ export default function Home() {
               <span className="text-xs font-medium text-zinc-400 uppercase tracking-widest">Service Areas</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-light text-zinc-100 mb-4">
-              Serving Irvine & Orange County
+              Serving Riverside, Orange County & the Inland Empire
             </h2>
             <p className="text-xl text-zinc-400">
-              Irvine • Newport Beach • Tustin • Lake Forest • Laguna Beach & More
+              Riverside • Corona • Moreno Valley • Temecula • Rancho Cucamonga & More
             </p>
           </div>
 
           {/* Cities Grid - 5 Columns */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {['Irvine', 'Newport Beach', 'Tustin', 'Lake Forest', 'Laguna Beach', 'Costa Mesa', 'Mission Viejo', 'Laguna Niguel', 'Aliso Viejo', 'Huntington Beach'].map((city, i) => (
+            {['Riverside', 'Corona', 'Moreno Valley', 'Temecula', 'Rancho Cucamonga', 'Ontario', 'Fontana', 'San Bernardino', 'Murrieta', 'Perris'].map((city, i) => (
               <div
                 key={i}
                 className="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900/70 transition-all text-center"
@@ -810,7 +810,7 @@ export default function Home() {
               <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>
-              Serving Irvine & Orange County, California
+              Serving Riverside & the Inland Empire, California
             </p>
           </div>
         </div>

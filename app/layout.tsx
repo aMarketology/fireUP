@@ -3,22 +3,22 @@ import { organizationSchema, servicesSchema, reviewSchema } from '@/lib/schema'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Fire Up Hibachi | Fire Up Hibachi | Southern California',
-  description: '14 years of cooking experience! Premium hibachi catering serving all Southern California. Best quality teppanyaki chef entertainment for your events. Book Chef Hernan today!',
-  keywords: 'hibachi catering, teppanyaki catering, Southern California, private chef, hibachi chef, event catering, party catering, Los Angeles hibachi, San Diego hibachi, Orange County catering',
+  title: 'Fire Up Hibachi | Premium Hibachi Catering | Riverside & Inland Empire',
+  description: '14 years of cooking experience! Premium hibachi catering serving Riverside, Corona, Temecula & the Inland Empire. Best quality teppanyaki chef entertainment for your events. Book Chef Hernan today!',
+  keywords: 'hibachi catering, teppanyaki catering, Riverside hibachi, Inland Empire catering, private chef, hibachi chef, event catering, party catering, Corona hibachi, Temecula catering, Rancho Cucamonga catering',
   metadataBase: new URL('https://fireuphibachi.com'),
   openGraph: {
     type: 'website',
     url: 'https://fireuphibachi.com',
     title: 'Fire Up Hibachi | Premium Hibachi Entertainment',
-    description: '14 years cooking experience. Best quality hibachi catering serving all Southern California.',
+    description: '14 years cooking experience. Best quality hibachi catering serving Riverside & the Inland Empire.',
     siteName: 'Fire Up Hibachi',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fire Up Hibachi | Fire Up Hibachi',
-    description: 'Premium hibachi catering with 14 years of cooking experience serving Southern California',
+    title: 'Fire Up Hibachi | Riverside Hibachi Catering',
+    description: 'Premium hibachi catering with 14 years of cooking experience serving Riverside & the Inland Empire',
   },
   robots: {
     index: true,
