@@ -1,11 +1,15 @@
 require('dotenv').config({ path: '.env' })
-const sgMail = require('@sendgrid/mail')
+const Mailjet = require('node-mailjet')
 
-// Initialize SendGrid
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+// Initialize Mailjet
+const mailjet = Mailjet.apiConnect(
+  process.env.MAILJET_API_KEY,
+  process.env.MAILJET_SECRET_KEY
+)
 
 console.log('🔥 Testing Fire Up Hibachi Email Integration...\n')
-console.log('SendGrid API Key:', process.env.SENDGRID_API_KEY ? '✅ Found' : '❌ Missing')
+console.log('Mailjet API Key:', process.env.MAILJET_API_KEY ? '✅ Found' : '❌ Missing')
+console.log('Mailjet Secret Key:', process.env.MAILJET_SECRET_KEY ? '✅ Found' : '❌ Missing')
 console.log('Notification Email 1:', process.env.NOTIFICATION_EMAIL_1 || '❌ Missing')
 console.log('Notification Email 2:', process.env.NOTIFICATION_EMAIL_2 || '❌ Missing')
 console.log('\n---\n')
@@ -18,21 +22,14 @@ const testFormData = {
   eventType: 'Birthday Party',
   eventDate: '2025-12-15',
   guestCount: '25',
-  eventLocation: 'Irvine, CA',
+  eventLocation: 'Riverside, CA',
   budget: '$1,500 - $2,000',
   dietaryRestrictions: 'Vegetarian options needed',
   message: 'This is a test inquiry for my birthday party!'
 }
 
-// Email to business owners (NO customer email - only notification to business)
-const notificationEmail = {
-  to: [
-    process.env.NOTIFICATION_EMAIL_1 || 'Fireuphibachi@gmail.com',
-    process.env.NOTIFICATION_EMAIL_2 || 'info@amarketology.com'
-  ],
-  from: 'info@amarketology.com',
-  subject: `🔥 New Event Inquiry - ${testFormData.name}`,
-  html: `
+// Email HTML content
+const htmlContent = `
     <!DOCTYPE html>
     <html>
       <head>
@@ -80,19 +77,68 @@ const notificationEmail = {
         </div>
       </body>
     </html>
+            <h1>🔥 TEST - New Event Inquiry</h1>
+          </div>
+          <div class="content">
+            <h2>Contact Information</h2>
+            <div class="detail-box">
+              <p><span class="label">Name:</span> ${testFormData.name}</p>
+              <p><span class="label">Email:</span> ${testFormData.email}</p>
+              <p><span class="label">Phone:</span> ${testFormData.phone}</p>
+            </div>
+            
+            <h2>Event Details</h2>
+            <div class="detail-box">
+              <p><span class="label">Event Type:</span> ${testFormData.eventType}</p>
+              <p><span class="label">Event Date:</span> ${testFormData.eventDate}</p>
+              <p><span class="label">Guest Count:</span> ${testFormData.guestCount}</p>
+              <p><span class="label">Location:</span> ${testFormData.eventLocation}</p>
+              <p><span class="label">Budget:</span> ${testFormData.budget}</p>
+            </div>
+            
+            <h2>Dietary Restrictions</h2>
+            <div class="detail-box">
+              <p>${testFormData.dietaryRestrictions}</p>
+            </div>
+            
+            <h2>Additional Message</h2>
+            <div class="detail-box">
+              <p>${testFormData.message}</p>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
   `
-}
 
 async function sendTestEmails() {
   try {
-    console.log('📧 Sending notification email to business owners...\n')
+    console.log('📧 Sending test notification email...\n')
     
-    console.log('Sending to:')
-    console.log('   -', process.env.NOTIFICATION_EMAIL_1)
-    console.log('   -', process.env.NOTIFICATION_EMAIL_2)
-    await sgMail.send(notificationEmail)
+    console.log('Sending to: max@amarketology.com')
+    
+    const request = await mailjet
+      .post('send', { version: 'v3.1' })
+      .request({
+        Messages: [
+          {
+            From: {
+              Email: 'info@amarketology.com',
+              Name: 'Fire Up Hibachi Test'
+            },
+            To: [
+              {
+                Email: 'max@amarketology.com',
+                Name: 'Max Test'
+              }
+            ],
+            Subject: `🔥 TEST - New Event Inquiry - ${testFormData.name}`,
+            HTMLPart: htmlContent
+          }
+        ]
+      })
+    
     console.log('   ✅ Notification emails sent successfully!\n')
-    
     console.log('🎉 Test email sent successfully!')
     console.log('\n📬 Check your inboxes (and spam folders) for the test email.')
     

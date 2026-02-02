@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server'
-import sgMail from '@sendgrid/mail'
+import Mailjet from 'node-mailjet'
 
-// Initialize SendGrid
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
+// Initialize Mailjet
+const mailjet = Mailjet.apiConnect(
+  process.env.MAILJET_API_KEY || '',
+  process.env.MAILJET_SECRET_KEY || ''
+)
 
 export async function POST(request: Request) {
   try {
@@ -21,15 +24,8 @@ export async function POST(request: Request) {
       message
     } = formData
 
-    // Email to business owners (Notification)
-    const notificationEmail = {
-      to: [
-        process.env.NOTIFICATION_EMAIL_1 || 'Fireuphibachi@gmail.com',
-        process.env.NOTIFICATION_EMAIL_2 || 'info@amarketology.com'
-      ],
-      from: 'info@amarketology.com', // Must be verified in SendGrid
-      subject: `🔥 New Event Inquiry - ${name}`,
-      html: `
+    // Email HTML content
+    const htmlContent = `
         <!DOCTYPE html>
         <html>
           <head>
@@ -87,10 +83,32 @@ export async function POST(request: Request) {
           </body>
         </html>
       `
-    }
 
-    // Send notification email to business owners only
-    await sgMail.send(notificationEmail)
+    // Send email using Mailjet
+    const request_mailjet = await mailjet
+      .post('send', { version: 'v3.1' })
+      .request({
+        Messages: [
+          {
+            From: {
+              Email: 'info@amarketology.com',
+              Name: 'Fire Up Hibachi'
+            },
+            To: [
+              {
+                Email: process.env.NOTIFICATION_EMAIL_1 || 'Fireuphibachi@gmail.com',
+                Name: 'Fire Up Hibachi'
+              },
+              {
+                Email: process.env.NOTIFICATION_EMAIL_2 || 'info@amarketology.com',
+                Name: 'A Marketology'
+              }
+            ],
+            Subject: `🔥 New Event Inquiry - ${name}`,
+            HTMLPart: htmlContent
+          }
+        ]
+      })
 
     return NextResponse.json(
       { message: 'Email sent successfully!' },
