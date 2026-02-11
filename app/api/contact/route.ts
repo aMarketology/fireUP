@@ -1,14 +1,15 @@
 import { NextResponse } from 'next/server'
 import Mailjet from 'node-mailjet'
-
-// Initialize Mailjet
-const mailjet = Mailjet.apiConnect(
-  process.env.MAILJET_API_KEY || '',
-  process.env.MAILJET_SECRET_KEY || ''
-)
+import { trackFormSubmission, generateClientId, generateUserIdFromEmail } from '@/lib/ga4'
 
 export async function POST(request: Request) {
   try {
+    // Initialize Mailjet (lazy loading to avoid build-time errors)
+    const mailjet = Mailjet.apiConnect(
+      process.env.MAILJET_API_KEY || '',
+      process.env.MAILJET_SECRET_KEY || ''
+    )
+
     const formData = await request.json()
 
     const {
@@ -109,6 +110,23 @@ export async function POST(request: Request) {
           }
         ]
       })
+
+    // Track form submission with GA4 Measurement Protocol
+    const clientId = formData.ga_client_id || generateClientId()
+    const userId = await generateUserIdFromEmail(email)
+    
+    await trackFormSubmission(
+      clientId,
+      {
+        form_name: 'event_inquiry_form',
+        event_type: eventType,
+        guest_count: guestCount,
+        budget: budget,
+        event_location: eventLocation,
+        email: email,
+      },
+      userId
+    ).catch(err => console.error('GA4 tracking error:', err))
 
     return NextResponse.json(
       { message: 'Email sent successfully!' },

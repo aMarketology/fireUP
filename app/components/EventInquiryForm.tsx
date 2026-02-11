@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { getGA4ClientId, trackFormSubmitWithUserId } from '@/lib/ga4-client'
 
 export default function EventInquiryForm() {
   const [formData, setFormData] = useState({
@@ -31,12 +32,21 @@ export default function EventInquiryForm() {
     setLoading(true)
     
     try {
+      // Get GA client ID and set user ID for cross-session tracking
+      const gaClientId = await getGA4ClientId()
+      
+      // Track form submission and set user ID in GA4
+      await trackFormSubmitWithUserId(formData.email)
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          ga_client_id: gaClientId
+        }),
       })
 
       if (response.ok) {
