@@ -1,25 +1,27 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { organizationSchema, servicesSchema, reviewSchema } from '@/lib/schema'
+import { organizationSchema, servicesSchema, reviewSchema, faqSchema, websiteSchema } from '@/lib/schema'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Fire Up Hibachi | Premium Hibachi Catering | Riverside & Inland Empire',
-  description: '14 years of cooking experience! Premium hibachi catering serving Riverside, Corona, Temecula & the Inland Empire. Best quality teppanyaki chef entertainment for your events. Book Chef Hernan today!',
-  keywords: 'hibachi catering, teppanyaki catering, Riverside hibachi, Inland Empire catering, private chef, hibachi chef, event catering, party catering, Corona hibachi, Temecula catering, Rancho Cucamonga catering',
+  title: 'Fire Up Hibachi | Premium Hibachi Catering | Riverside, San Diego & Inland Empire',
+  description: '14 years of cooking experience! Premium hibachi catering serving San Diego, Riverside, Corona, Temecula & the Inland Empire. Best quality teppanyaki chef entertainment for your events. Book Chef Hernan today!',
+  keywords: 'hibachi catering, teppanyaki catering, hibachi catering San Diego, Riverside hibachi, Inland Empire catering, private chef, hibachi chef, event catering, party catering, San Diego hibachi catering, Corona hibachi, Temecula catering',
   metadataBase: new URL('https://fireuphibachi.com'),
   openGraph: {
     type: 'website',
     url: 'https://fireuphibachi.com',
-    title: 'Fire Up Hibachi | Premium Hibachi Entertainment',
-    description: '14 years cooking experience. Best quality hibachi catering serving Riverside & the Inland Empire.',
+    title: 'Fire Up Hibachi | Private Hibachi & Teppanyaki Catering',
+    description: 'Premium mobile hibachi catering serving San Diego, Riverside & the Inland Empire. Chef Hernan — 14 years of teppanyaki experience. Free quote.',
     siteName: 'Fire Up Hibachi',
     locale: 'en_US',
+    images: [{ url: 'https://fireuphibachi.com/hero-bg-hibachi.jpg', width: 1200, height: 630, alt: 'Fire Up Hibachi — Private Teppanyaki Chef' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fire Up Hibachi | Riverside Hibachi Catering',
-    description: 'Premium hibachi catering with 14 years of cooking experience serving Riverside & the Inland Empire',
+    title: 'Fire Up Hibachi | Hibachi Catering San Diego & Inland Empire',
+    description: 'Mobile hibachi catering — San Diego, Riverside & the Inland Empire. Chef Hernan, 14 years teppanyaki experience. Book your event today.',
+    images: ['https://fireuphibachi.com/hero-bg-hibachi.jpg'],
   },
   robots: {
     index: true,
@@ -62,6 +64,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(reviewSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
         {/* Google Search Console Verification */}

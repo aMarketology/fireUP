@@ -1,13 +1,22 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Gallery | Fire Up Hibachi | Event Photos & Videos',
-  description: 'View our gallery of hibachi catering events, chef performances, and delicious cuisine. See why Fire Up Hibachi is the top choice in Riverside & the Inland Empire.',
-  keywords: 'hibachi catering photos, teppanyaki event gallery, hibachi chef videos, catering event pictures, Riverside hibachi gallery',
+  title: 'Hibachi Event Gallery | Fire Up Hibachi | Photos & Videos',
+  description: 'See Fire Up Hibachi in action — real event photos, live teppanyaki chef performances, and delicious cuisine from events across San Diego, Riverside & the Inland Empire.',
+  keywords: 'hibachi catering photos, teppanyaki event gallery, hibachi chef San Diego, private hibachi event pictures, live hibachi cooking videos, Fire Up Hibachi gallery',
+  alternates: {
+    canonical: 'https://fireuphibachi.com/gallery',
+  },
   openGraph: {
-    title: 'Gallery | Fire Up Hibachi',
-    description: 'View our gallery of hibachi catering events and chef performances.',
+    title: 'Hibachi Event Gallery | Fire Up Hibachi',
+    description: 'See real hibachi events, live teppanyaki performances & Chef Hernan in action across San Diego & the Inland Empire.',
     url: 'https://fireuphibachi.com/gallery',
     type: 'website',
+    images: [{ url: 'https://fireuphibachi.com/hero-bg-hibachi.jpg', width: 1200, height: 630, alt: 'Fire Up Hibachi Event Gallery' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hibachi Event Gallery | Fire Up Hibachi',
+    description: 'Real event photos — live teppanyaki chef performances across San Diego & Inland Empire.',
   },
 }
