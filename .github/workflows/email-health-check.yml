@@ -1,0 +1,48 @@
+name: Weekly Email Health Check
+
+on:
+  schedule:
+    # Runs every Monday at 9:00 AM Pacific Time (5:00 PM UTC)
+    - cron: '0 17 * * 1'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  test-email-system:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create .env.local file
+        run: |
+          cat > .env.local << EOF
+          MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }}
+          MAILGUN_DOMAIN=${{ secrets.MAILGUN_DOMAIN }}
+          MAILGUN_FROM=${{ secrets.MAILGUN_FROM }}
+          MAILJET_API_KEY=${{ secrets.MAILJET_API_KEY }}
+          MAILJET_SECRET_KEY=${{ secrets.MAILJET_SECRET_KEY }}
+          NOTIFICATION_EMAIL_1=${{ secrets.NOTIFICATION_EMAIL_1 }}
+          NOTIFICATION_EMAIL_2=${{ secrets.NOTIFICATION_EMAIL_2 }}
+          EOF
+
+      - name: Run email health check
+        run: node test-email-health.js
+        continue-on-error: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: email-health-check-results
+          path: email-health-report.txt
+          retention-days: 30

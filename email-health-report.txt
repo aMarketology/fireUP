@@ -1,0 +1,16 @@
+Email System Health Check
+Test Date: 2/26/2026, 1:43:47 PM
+
+Overall Status: UNKNOWN
+
+Mailgun (Primary):
+  Status: SUCCESS
+  Response Time: 356ms
+  Message ID: <20260226194348.0872b361d1b7970d@austin-web-services.com>
+  
+
+Mailjet (Fallback):
+  Status: FAILED
+  Response Time: 463ms
+  
+  Error: Unsuccessful: Status Code: "401" Message: "Your account has been temporarily blocked. Please contact our support team to get assistance."
